@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "include": [
+      "src/**/*",
+      "__tests__/**/*",
+      "renovate-config.js"
+    ],
+    "exclude": [],
+    "compilerOptions": {
+      "allowJs": true
+    }
+  }

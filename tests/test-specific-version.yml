@@ -1,0 +1,27 @@
+name: Test specific version installation
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        with:
+          version: '2.13.0'
+      - name: Assert octopus CLI version matches requested
+        run: |
+          echo "Checking if octopus CLI is available on PATH..."
+          if ! command -v octopus &>/dev/null; then
+            echo "FAIL: 'octopus' command not found on PATH"
+            exit 1
+          fi
+          VERSION_OUTPUT="$(octopus version 2>&1 || true)"
+          echo "octopus version output: $VERSION_OUTPUT"
+          if echo "$VERSION_OUTPUT" | grep -q "2.13.0"; then
+            echo "PASS: octopus CLI version 2.13.0 is installed"
+          else
+            echo "FAIL: expected version 2.13.0 but got: $VERSION_OUTPUT"
+            exit 1
+          fi
