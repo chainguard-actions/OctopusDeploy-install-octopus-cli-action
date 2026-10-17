@@ -1,0 +1,22 @@
+name: Test basic usage (default latest version)
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: install
+        uses: .
+        with:
+          version: latest
+      - name: Assert octopus CLI is installed and on PATH
+        run: |
+          echo "Checking for octopus CLI on PATH..."
+          if ! command -v octopus > /dev/null 2>&1; then
+            echo "FAIL: 'octopus' command not found on PATH"
+            exit 1
+          fi
+          VERSION_OUTPUT="$(octopus version 2>&1 || true)"
+          echo "octopus version output: $VERSION_OUTPUT"
+          echo "PASS: octopus CLI is installed"
