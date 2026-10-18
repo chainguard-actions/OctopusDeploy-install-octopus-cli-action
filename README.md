@@ -9,6 +9,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 | Version | Tag | Upstream commit |
 |---------|-----|-----------------|
 | v4 | [`v4`](https://github.com/chainguard-actions/OctopusDeploy-install-octopus-cli-action/tree/v4) | [`ca46cd9`](https://github.com/OctopusDeploy/install-octopus-cli-action/commit/ca46cd92ec55b3224ce81833dba9c20ba3bab694) |
+| v4.1.2 | [`v4.1.2`](https://github.com/chainguard-actions/OctopusDeploy-install-octopus-cli-action/tree/v4.1.2) | [`ca46cd9`](https://github.com/OctopusDeploy/install-octopus-cli-action/commit/ca46cd92ec55b3224ce81833dba9c20ba3bab694) |
 
 ## Privacy
 
